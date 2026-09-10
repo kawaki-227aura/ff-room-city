@@ -1,0 +1,9 @@
+{
+  "name": "FF ROOM CITY",
+  "short_name": "ROOM CITY",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030706",
+  "theme_color": "#030706",
+  "description": "FF ROOM CITY — KAWAKI227"
+}
