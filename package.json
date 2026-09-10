@@ -1,0 +1,17 @@
+{
+  "name": "ff-room-city-v3",
+  "version": "3.0.0",
+  "private": true,
+  "description": "FF ROOM CITY V3 - room hub by Kawaki227",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "express": "^5.1.0"
+  }
+}
