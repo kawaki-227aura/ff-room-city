@@ -1,31 +1,23 @@
-# FF ROOM CITY V3 FINAL — KAWAKI227
+# FF ROOM CITY V3.2 — KAWAKI227
 
-Cette version combine le style visuel de la V1 avec le système online de la V3.
+Version online avec suppression sécurisée des rooms et expiration automatique.
 
-### Inclus
-- Design mobile premium inspiré de la V1 : cartes de rooms, animations, badge ACTIVE, boutons VOIR LA ROOM / WA.
-- Types : 1v1, 1v2, 2v2, 2v3, 2v4, 3v3, 3v4, 3v5, 3v6, 1v6, 2v6.
-- Récompenses : Booyah Pass, Diamants, Autre, Rien.
-- Création : type, récompense, téléphone, ID squad/joueur, créateur, date/heure et règle optionnelle.
-- Rooms partagées via SQLite côté serveur.
-- Synchronisation automatique toutes les 5 secondes : pas besoin de recharger.
-- Alerte visuelle quand une nouvelle room arrive.
-- Recherche + filtres.
-- Détails de room + contact WhatsApp.
-- Pas de notifications push/VAPID.
-- PWA manifest.
+## Fonctionnalités
+- Rooms partagées via Node.js + Express + SQLite.
+- Synchronisation automatique toutes les 5 secondes.
+- Formats : 1v1, 1v2, 2v2, 2v3, 2v4, 3v3, 3v4, 3v5, 3v6, 1v6, 2v6.
+- Création avec récompense, téléphone, ID squad/joueur, créateur, heure et règles.
+- **Suppression sécurisée :** chaque nouvelle room reçoit une clé secrète unique. La clé est stockée uniquement sur l'appareil du créateur et son hash est stocké sur le serveur. Un autre joueur ne peut pas supprimer la room sans cette clé.
+- **Expiration automatique :** par défaut, une room est supprimée 24 h après sa création.
+- Le délai est configurable avec la variable d'environnement `ROOM_TTL_HOURS` (minimum 1 heure).
 
-### Déploiement
-Le projet doit être déployé sur un hébergement qui exécute Node.js.
+## Déploiement Render
+- Build : `npm install`
+- Start : `npm start`
+- Node : `20.x`
+- Optionnel : `ROOM_TTL_HOURS=24`
 
-Commandes :
-npm install
-npm start
+## Important
+Pour que les rooms survivent aux redémarrages du service, SQLite doit être placé sur un stockage persistant ou remplacé par une base de données persistante. Le stockage local d'une instance gratuite peut être éphémère.
 
-Ne pas mettre uniquement le dossier `public` sur un hébergement statique.
-
-### Base de données
-La base est `data/rooms.db`. Utilise un disque persistant sur l'hébergeur et, si nécessaire, définis `DATA_DIR` vers ce disque pour éviter la perte des rooms après un redémarrage.
-
-### Contact
-KAWAKI227 — +227 81 28 94 18
+Contact : KAWAKI227 • +227 81 28 94 18
