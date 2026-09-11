@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050908">
+<meta name="description" content="FF ROOM CITY — Rooms Free Fire par KAWAKI227">
+<title>FF ROOM CITY | KAWAKI227</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<style>
+:root{--bg:#030706;--bg2:#07100c;--card:#07100c;--card2:#09140f;--line:#17382a;--line2:#204d39;--text:#eef8f2;--muted:#83998e;--green:#00ff91;--green2:#00d878;--soft:#0b2b1e;--danger:#ff5574}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 50% -10%,#123b27 0,transparent 34%),linear-gradient(180deg,#030605,#020504 65%,#06100b);min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(0,255,145,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,145,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.top{position:sticky;top:0;z-index:50;background:rgba(3,6,5,.88);backdrop-filter:blur(18px);border-bottom:1px solid #10261d}
+.nav{height:68px;max-width:1080px;margin:auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:21px;font-weight:950;letter-spacing:.8px}.brand span{color:var(--green)}.navBtns{display:flex;gap:10px}.iconBtn{width:48px;height:48px;border:1px solid var(--line);border-radius:14px;background:#07100c;color:#d9efe3;font-size:20px;display:grid;place-items:center;box-shadow:inset 0 0 20px #00ff9107}.iconBtn:hover{border-color:var(--green);transform:translateY(-1px)}
+main{max-width:1080px;margin:auto;padding:0 18px 70px}.hero{padding:40px 0 22px;text-align:center}.hero h1{font-size:clamp(40px,9vw,74px);line-height:.95;margin:0;text-transform:uppercase;letter-spacing:-3px;font-weight:1000}.hero h1 span{color:var(--green);text-shadow:0 0 30px #00ff9135}.hero p{margin:15px auto 0;max-width:680px;color:#84988e;line-height:1.6;font-size:14px}
+.sync{margin:4px auto 22px;display:flex;align-items:center;justify-content:center;gap:7px;color:#769087;font-size:11px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);display:inline-block}.dot.off{background:var(--danger);box-shadow:none}
+.createRow{text-align:center;margin-bottom:18px}.createBtn{border:1px solid #28f49b66;background:linear-gradient(180deg,#0b2b1e,#071c14);color:#caffdf;border-radius:13px;padding:12px 17px;font-weight:900;box-shadow:0 0 30px #00ff9110}.createBtn strong{color:var(--green)}
+.notice{border:1px solid #1c4934;background:#06140e;border-radius:14px;padding:12px 14px;color:#a9beb3;font-size:12px;line-height:1.55;margin-bottom:18px}.notice b{color:#dfffee}
+.controls{display:grid;gap:10px;margin-bottom:20px}.search{height:56px;border:1px solid var(--line2);background:#07100c;color:#eef8f2;border-radius:14px;padding:0 16px;font-size:15px;outline:0;box-shadow:inset 0 0 30px #00ff9105}.search:focus{border-color:#00ff9188;box-shadow:0 0 0 3px #00ff9110}.filters{display:grid;grid-template-columns:1fr 1fr;gap:10px}.select{height:52px;border:1px solid var(--line2);background:#07100c;color:#dcebe4;border-radius:13px;padding:0 13px;outline:0}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;margin:7px 0 12px}.sectionHead h2{margin:0;font-size:18px}.count{color:#70877c;font-size:11px}
+.rooms{display:grid;gap:14px}.room{position:relative;overflow:hidden;border:1px solid #17382a;background:linear-gradient(145deg,#08130e,#06100b);border-radius:21px;padding:20px 18px 17px;box-shadow:0 12px 45px #0009, inset 0 1px #ffffff04}.room:after{content:"";position:absolute;inset:auto -30% -70% -30%;height:150px;background:radial-gradient(circle,#00ff9112,transparent 65%);pointer-events:none}.room:hover{border-color:#276344;transform:translateY(-1px);transition:.2s}.room.new{animation:newRoom .9s ease}.room.new:before{content:"NOUVELLE";position:absolute;top:0;right:0;background:var(--green);color:#00140b;font-size:9px;font-weight:1000;padding:5px 9px;border-radius:0 0 0 9px}@keyframes newRoom{0%{box-shadow:0 0 0 #00ff9100}35%{box-shadow:0 0 35px #00ff9145}100%{box-shadow:0 12px 45px #0009}}
+.roomTop{display:flex;align-items:center;justify-content:space-between;gap:10px}.type{display:inline-block;background:#07301f;color:var(--green);border-radius:8px;padding:7px 11px;font-weight:1000;font-size:15px}.active{font-size:10px;color:#7f9a8e}.active i{display:inline-block;width:6px;height:6px;background:#86a99a;border-radius:50%;margin-right:5px}
+.creator{font-size:24px;font-weight:950;margin:19px 0 12px;letter-spacing:-.6px}.chips{display:grid;gap:8px;color:#9eb2a8;font-size:14px}.chip{display:flex;align-items:center;gap:6px}.chip .emoji{width:21px;text-align:center}.rules{color:#92a79d;font-size:13px;margin-top:9px;display:flex;gap:7px;align-items:flex-start}.actions{display:grid;grid-template-columns:1fr .82fr;gap:11px;margin-top:18px;position:relative;z-index:2}.viewBtn,.waBtn{height:56px;border-radius:13px;font-weight:1000;text-decoration:none;display:grid;place-items:center}.viewBtn{border:0;background:linear-gradient(180deg,#00ff91,#00e37f);color:#00140c;box-shadow:0 7px 24px #00ff9120}.waBtn{border:1px solid #236542;background:#0b3524;color:#aef4cf}.viewBtn:active,.waBtn:active{transform:scale(.98)}
+.empty{padding:45px 20px;text-align:center;border:1px dashed #1b3b2c;border-radius:18px;color:#738980;background:#06100b}.footer{text-align:center;color:#52685e;font-size:11px;padding:30px 0}.modal{position:fixed;inset:0;z-index:100;background:#000b;backdrop-filter:blur(8px);display:none;place-items:end center;padding:14px}.modal.show{display:grid}.sheet{width:min(560px,100%);max-height:90vh;overflow:auto;background:#08110d;border:1px solid #204b36;border-radius:22px 22px 16px 16px;padding:20px;box-shadow:0 -10px 70px #00ff9110}.sheetHead{display:flex;justify-content:space-between;gap:10px;align-items:center}.sheet h3{margin:0;font-size:20px}.x{border:1px solid var(--line);background:#0b1711;color:#b7cbc1;border-radius:10px;width:38px;height:38px}.form{display:grid;gap:11px;margin-top:16px}.field{display:grid;gap:6px}.field label{font-size:10px;color:#779087;text-transform:uppercase;font-weight:900;letter-spacing:.7px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line2);background:#050b08;color:#edf8f2;border-radius:11px;padding:12px;outline:0}.field textarea{min-height:80px;resize:vertical}.submit{height:52px;border:0;border-radius:12px;background:linear-gradient(90deg,#00ff91,#00d9ff);color:#00130b;font-weight:1000;margin-top:3px}.detail{display:grid;gap:12px;margin-top:15px}.detailLine{border:1px solid var(--line);background:#06100b;border-radius:12px;padding:12px}.detailLine small{display:block;color:#71877d;font-size:10px;text-transform:uppercase;margin-bottom:4px}.detailLine b{font-size:14px}.toast{position:fixed;z-index:120;left:50%;bottom:22px;transform:translate(-50%,120px);opacity:0;transition:.25s;background:#0b1711;border:1px solid #2a513c;border-radius:13px;padding:12px 15px;font-size:13px;box-shadow:0 12px 35px #000c;max-width:90%;text-align:center}.toast.show{transform:translate(-50%,0);opacity:1}
+.deleteBtn{height:48px;border:1px solid #6b2b3b;border-radius:12px;background:#210b12;color:#ff9caf;font-weight:1000}.ownerHint{padding:10px 12px;border:1px dashed #244536;border-radius:11px;color:#789087;font-size:11px;line-height:1.45;text-align:center}
+@media(min-width:700px){.controls{grid-template-columns:1.5fr 1fr}.search{height:52px}.filters{grid-template-columns:1fr 1fr}.rooms{grid-template-columns:1fr 1fr}.hero{text-align:left}.hero p{margin-left:0}.sync{justify-content:flex-start}.createRow{text-align:left}}
+</style>
+</head>
+<body>
+<header class="top"><nav class="nav"><div class="brand">FF <span>ROOM CITY</span></div><div class="navBtns"><button class="iconBtn" id="notifyInfo" aria-label="Information">🔔</button><button class="iconBtn" id="themeBtn" aria-label="Thème">◐</button></div></nav></header>
+
+<main>
+<section class="hero">
+<h1>ROOMS <span>DISPONIBLES</span></h1>
+<p>Crée ou trouve une room Free Fire. Les rooms sont partagées entre tous les joueurs connectés au même serveur.</p>
+</section>
+
+<div class="sync" id="status"><span class="dot"></span> Synchronisation automatique • 5 secondes</div>
+
+<div class="createRow"><button class="createBtn" id="openCreate">＋ <strong>CRÉER UNE ROOM</strong></button></div>
+
+<div class="notice"><b>ℹ INFORMATION :</b> si un joueur crée une room pendant que tu es déjà sur la page, la liste se met à jour automatiquement. <b>Aucun rechargement nécessaire.</b></div>
+
+<section class="controls">
+<input class="search" id="search" placeholder="🔎 Rechercher une room, créateur ou ID...">
+<div class="filters"><select class="select" id="filterType"><option value="ALL">Tous les formats</option></select><select class="select" id="filterReward"><option value="ALL">Toutes les récompenses</option><option>Booyah Pass</option><option>Diamants</option><option>Autre</option><option>Rien</option></select></div>
+</section>
+
+<div class="sectionHead"><h2>⚡ Rooms disponibles</h2><div class="count" id="count">0 room</div></div>
+<section class="rooms" id="rooms"></section>
+
+<div class="footer">FF ROOM CITY V3.2 • BY KAWAKI227 • +227 81 28 94 18</div>
+</main>
+
+<div class="modal" id="createModal"><div class="sheet">
+<div class="sheetHead"><h3>＋ Créer une room</h3><button class="x" data-close>✕</button></div>
+<form class="form" id="createForm">
+<div class="field"><label>Type de room</label><select id="type" required></select></div>
+<div class="field"><label>Récompense</label><select id="reward" required><option>Booyah Pass</option><option>Diamants</option><option>Autre</option><option>Rien</option></select></div>
+<div class="field"><label>Numéro de contact</label><input id="phone" placeholder="+227..." maxlength="30" required></div>
+<div class="field"><label>ID du squad / joueur</label><input id="squadId" placeholder="Ex: 5665556" maxlength="40" required></div>
+<div class="field"><label>Nom du créateur</label><input id="creator" placeholder="Kawaki227" maxlength="50" required></div>
+<div class="field"><label>Date / heure du match (optionnel)</label><input id="matchTime" type="datetime-local"></div>
+<div class="field"><label>Règle de la room (optionnel)</label><textarea id="rules" maxlength="500" placeholder="Ex: Pas de grenade • Booyah = victoire"></textarea></div>
+<button class="submit" id="submitBtn">PUBLIER LA ROOM</button>
+</form></div></div>
+
+<div class="modal" id="detailModal"><div class="sheet">
+<div class="sheetHead"><h3 id="detailTitle">Détails de la room</h3><button class="x" data-close>✕</button></div>
+<div class="detail" id="detail"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const TYPES=["1v1","1v2","2v2","2v3","2v4","3v3","3v4","3v5","3v6","1v6","2v6"];
+const $=s=>document.querySelector(s), type=$("#type"), filterType=$("#filterType");
+TYPES.forEach(t=>{type.insertAdjacentHTML("beforeend",`<option>${t}</option>`);filterType.insertAdjacentHTML("beforeend",`<option>${t}</option>`)});
+let rooms=[], first=true, lastIds=new Set();
+const DELETE_KEYS="ffrc_delete_keys_v32";
+function getDeleteKeys(){try{return JSON.parse(localStorage.getItem(DELETE_KEYS)||"{}")}catch(_){return {}}}
+function saveDeleteKey(id,token){const x=getDeleteKeys();x[id]=token;localStorage.setItem(DELETE_KEYS,JSON.stringify(x))}
+function removeDeleteKey(id){const x=getDeleteKeys();delete x[id];localStorage.setItem(DELETE_KEYS,JSON.stringify(x))}
+function fmtExpiry(s){if(!s)return "Non indiquée";let d=new Date(s);return isNaN(d)?"Non indiquée":d.toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}
+
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function fmt(s){if(!s)return "Non indiquée";let d=new Date(s);return isNaN(d)?"Non indiquée":d.toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}
+function wa(r){let n=String(r.phone).replace(/\D/g,"");let m=`FF ROOM CITY\n🎮 ${r.type}\n🎁 ${r.reward}\n👤 ${r.creator}\n🆔 ${r.squad_id}\n🕒 ${r.match_time?fmt(r.match_time):"Non indiquée"}\n📋 ${r.rules||"Aucune règle indiquée"}`;return `https://wa.me/${n}?text=${encodeURIComponent(m)}`}
+function toast(m){let t=$("#toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)}
+function render(){
+ const q=$("#search").value.toLowerCase().trim(), ft=filterType.value, fr=$("#filterReward").value;
+ const list=rooms.filter(r=>(ft==="ALL"||r.type===ft)&&(fr==="ALL"||r.reward===fr)&&(!q||`${r.type} ${r.creator} ${r.squad_id} ${r.reward}`.toLowerCase().includes(q)));
+ $("#count").textContent=`${list.length} room${list.length>1?"s":""}`;
+ if(!list.length){$("#rooms").innerHTML='<div class="empty">Aucune room trouvée.<br><br>Sois le premier à créer une room 👑</div>';return}
+ $("#rooms").innerHTML=list.map(r=>{
+   const fresh=!first&&!lastIds.has(r.id);
+   return `<article class="room ${fresh?"new":""}">
+    <div class="roomTop"><span class="type">${esc(r.type)}</span><span class="active"><i></i>ACTIVE</span></div>
+    <div class="creator">${esc(r.creator)}</div>
+    <div class="chips">
+      <div class="chip"><span class="emoji">🏆</span><span>💎 ${esc(r.reward)}</span></div>
+      <div class="chip"><span class="emoji">🆔</span><span>${esc(r.squad_id)}</span></div>
+      <div class="chip"><span class="emoji">◷</span><span>${fmt(r.match_time)}</span></div>
+      <div class="chip"><span class="emoji">⌛</span><span>Expire le ${fmtExpiry(r.expires_at)}</span></div>
+    </div>
+    <div class="rules"><span>📋</span><span>${esc(r.rules||"Aucune règle indiquée")}</span></div>
+    <div class="actions"><button class="viewBtn" onclick="viewRoom(${r.id})">VOIR LA ROOM</button><a class="waBtn" target="_blank" rel="noopener" href="${wa(r)}">WA</a></div>
+   </article>`;
+ }).join("");
+ lastIds=new Set(rooms.map(r=>r.id)); first=false;
+}
+async function load(silent=true){
+ try{
+  const res=await fetch("/api/rooms?limit=200",{cache:"no-store"});if(!res.ok)throw new Error();
+  const data=await res.json(), incoming=data.rooms||[];
+  const newCount=incoming.filter(r=>!lastIds.has(r.id)).length;
+  rooms=incoming;
+  $("#status").innerHTML='<span class="dot"></span> Synchronisé • '+new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  render();
+  if(!first&&newCount)toast(`🔔 ${newCount} nouvelle${newCount>1?"s":""} room${newCount>1?"s":""} disponible${newCount>1?"s":""} !`);
+ }catch(e){$("#status").innerHTML='<span class="dot off"></span> Serveur temporairement inaccessible';if(!silent)toast("Impossible de contacter le serveur.");}
+}
+window.viewRoom=async id=>{
+ const r=rooms.find(x=>x.id===id);if(!r)return;
+ $("#detailTitle").textContent=`Room ${r.type} • ${r.creator}`;
+ $("#detail").innerHTML=`
+ <div class="detailLine"><small>Format</small><b>${esc(r.type)}</b></div>
+ <div class="detailLine"><small>Récompense</small><b>🎁 ${esc(r.reward)}</b></div>
+ <div class="detailLine"><small>ID squad / joueur</small><b>🆔 ${esc(r.squad_id)}</b></div>
+ <div class="detailLine"><small>Contact</small><b>📞 ${esc(r.phone)}</b></div>
+ <div class="detailLine"><small>Heure du match</small><b>🕒 ${fmt(r.match_time)}</b></div>
+ <div class="detailLine"><small>Règle</small><b>📋 ${esc(r.rules||"Aucune règle indiquée")}</b></div>
+ <a class="waBtn" style="height:50px" target="_blank" rel="noopener" href="${wa(r)}">CONTACTER SUR WHATSAPP</a>
+ ${getDeleteKeys()[r.id]?`<button class="deleteBtn" onclick="deleteRoom(${r.id})">🗑️ SUPPRIMER MA ROOM</button>`:`<div class="ownerHint">🔐 Seul le créateur de cette room peut la supprimer depuis l’appareil où elle a été créée.</div>`}`;
+ $("#detailModal").classList.add("show");
+};
+$("#openCreate").onclick=()=>$("#createModal").classList.add("show");
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>b.closest(".modal").classList.remove("show"));
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("show")}));
+$("#search").oninput=render;filterType.onchange=render;$("#filterReward").onchange=render;
+$("#notifyInfo").onclick=()=>toast("🔔 Notifications push désactivées dans cette version. La synchronisation automatique reste active.");
+$("#themeBtn").onclick=()=>document.body.classList.toggle("light"); // reserved visual toggle
+$("#createForm").onsubmit=async e=>{
+ e.preventDefault();const b=$("#submitBtn");b.disabled=true;b.textContent="PUBLICATION...";
+ const body={type:type.value,reward:$("#reward").value,phone:$("#phone").value,squad_id:$("#squadId").value,creator:$("#creator").value,match_time:$("#matchTime").value,rules:$("#rules").value};
+ try{const res=await fetch("/api/rooms",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});const data=await res.json();if(!res.ok)throw new Error(data.error||"Erreur");if(data.delete_token&&data.room?.id)saveDeleteKey(data.room.id,data.delete_token);$("#createForm").reset();$("#createModal").classList.remove("show");toast("✅ Room publiée pour tous les joueurs !");await load(false)}catch(err){toast("❌ "+err.message)}finally{b.disabled=false;b.textContent="PUBLIER LA ROOM"}
+};
+window.deleteRoom=async id=>{const token=getDeleteKeys()[id];if(!token)return toast("🔐 Cette room n’a pas de clé de suppression sur cet appareil.");if(!confirm("Supprimer définitivement cette room ?"))return;try{const res=await fetch(`/api/rooms/${id}`,{method:"DELETE",headers:{"X-Room-Delete-Token":token}});const data=await res.json();if(!res.ok)throw new Error(data.error||"Suppression impossible");removeDeleteKey(id);$("#detailModal").classList.remove("show");toast("🗑️ Ta room a été supprimée.");await load(false)}catch(e){toast("❌ "+e.message)}};
+load(false);setInterval(()=>load(true),5000);
+</script>
+</body>
+</html>
