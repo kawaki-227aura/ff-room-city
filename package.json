@@ -1,6 +1,6 @@
 {
   "name": "ff-room-city-v3",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "private": true,
   "description": "FF ROOM CITY V3.2 - secure room deletion and automatic expiration by Kawaki227",
   "main": "server.js",
