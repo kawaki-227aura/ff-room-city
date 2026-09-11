@@ -29,7 +29,7 @@ main{max-width:1080px;margin:auto;padding:0 18px 70px}.hero{padding:40px 0 22px;
 </style>
 </head>
 <body>
-<header class="top"><nav class="nav"><div class="brand">FF <span>ROOM CITY</span></div><div class="navBtns"><button class="iconBtn" id="notifyInfo" aria-label="Information">🔔</button><button class="iconBtn" id="themeBtn" aria-label="Thème">◐</button></div></nav></header>
+<header class="top"><nav class="nav"><div class="brand">FF <span>ROOM CITY</span></div><div class="navBtns"><button class="iconBtn" id="notifyInfo" aria-label="Information">🔔</button><a class="iconBtn" href="/admin.html" aria-label="Owner">⚡</a><button class="iconBtn" id="themeBtn" aria-label="Thème">◐</button></div></nav></header>
 
 <main>
 <section class="hero">
@@ -51,7 +51,7 @@ main{max-width:1080px;margin:auto;padding:0 18px 70px}.hero{padding:40px 0 22px;
 <div class="sectionHead"><h2>⚡ Rooms disponibles</h2><div class="count" id="count">0 room</div></div>
 <section class="rooms" id="rooms"></section>
 
-<div class="footer">FF ROOM CITY V3.2 • BY KAWAKI227 • +227 81 28 94 18</div>
+<div class="footer">FF ROOM CITY V3.3 • BY KAWAKI227 • +227 81 28 94 18</div>
 </main>
 
 <div class="modal" id="createModal"><div class="sheet">
@@ -78,7 +78,7 @@ const TYPES=["1v1","1v2","2v2","2v3","2v4","3v3","3v4","3v5","3v6","1v6","2v6"];
 const $=s=>document.querySelector(s), type=$("#type"), filterType=$("#filterType");
 TYPES.forEach(t=>{type.insertAdjacentHTML("beforeend",`<option>${t}</option>`);filterType.insertAdjacentHTML("beforeend",`<option>${t}</option>`)});
 let rooms=[], first=true, lastIds=new Set();
-const DELETE_KEYS="ffrc_delete_keys_v32";
+const DELETE_KEYS="ffrc_delete_keys_v33";
 function getDeleteKeys(){try{return JSON.parse(localStorage.getItem(DELETE_KEYS)||"{}")}catch(_){return {}}}
 function saveDeleteKey(id,token){const x=getDeleteKeys();x[id]=token;localStorage.setItem(DELETE_KEYS,JSON.stringify(x))}
 function removeDeleteKey(id){const x=getDeleteKeys();delete x[id];localStorage.setItem(DELETE_KEYS,JSON.stringify(x))}
